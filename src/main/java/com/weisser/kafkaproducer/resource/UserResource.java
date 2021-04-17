@@ -1,16 +1,12 @@
 package com.weisser.kafkaproducer.resource;
 
-
 import com.weisser.kafkaproducer.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("kafka")
+@RequestMapping("/kafka")
 public class UserResource {
 
     @Autowired
@@ -18,11 +14,12 @@ public class UserResource {
 
     private static final String TOPIC = "Kafka_Example";
 
-    @GetMapping("/publish/{name}")
-    public String post(@PathVariable("name") final String name) {
+    @PostMapping("/publish")
+    public String post(@RequestBody User user) {
 
-        kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
+        kafkaTemplate.send(TOPIC, user);
 
         return "Published successfully";
     }
 }
+
