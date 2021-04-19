@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
-public class User {
+public class Taxi {
 
-    private String name;
-    private String dept;
-    private Long salary;
-
+    private Long id;
+    private double lat;
+    private double lng;
 }

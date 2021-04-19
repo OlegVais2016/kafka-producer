@@ -1,6 +1,6 @@
 package com.weisser.kafkaproducer.resource;
 
-import com.weisser.kafkaproducer.model.User;
+import com.weisser.kafkaproducer.model.Taxi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 public class UserResource {
 
     @Autowired
-    private KafkaTemplate<String, User> kafkaTemplate;
+    private KafkaTemplate<String, Taxi> kafkaTemplate;
 
-    private static final String TOPIC = "Kafka_Example";
+    private static final String TOPIC = "Taxi_Location";
 
     @PostMapping("/publish")
-    public String post(@RequestBody User user) {
+    public String post(@RequestBody Taxi taxi) {
 
-        kafkaTemplate.send(TOPIC, user);
+        kafkaTemplate.send(TOPIC, taxi);
 
         return "Published successfully";
     }
