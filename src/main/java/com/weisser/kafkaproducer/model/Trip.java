@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Taxi {
+public class Trip {
 
     private Long id;
-    private double lat;
-    private double lng;
+    private String city;
+    private Integer km;
 }

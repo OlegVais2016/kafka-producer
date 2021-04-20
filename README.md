@@ -8,10 +8,10 @@ This Project covers how to use Spring Boot with Spring Kafka to Publish JSON/Str
 - `bin/kafka-server-start.sh config/server.properties`
 
 ## Create Kafka Topic
-- `bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Taxi_Location`
+- `bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Trips`
 
 ## Consume from the Kafka Topic via Console
-- `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Taxi_Location --from-beginning`
+- `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Trips --from-beginning`
 
 ## Publish message via WebService
 - `http://localhost:8081/kafka/publish/`

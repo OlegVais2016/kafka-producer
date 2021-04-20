@@ -1,7 +1,7 @@
 package com.weisser.kafkaproducer.config;
 
 
-import com.weisser.kafkaproducer.model.Taxi;
+import com.weisser.kafkaproducer.model.Trip;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ import java.util.Map;
 public class KafkaConfiguration {
 
     @Bean
-    public ProducerFactory<String, Taxi> producerFactory() {
+    public ProducerFactory<String, Trip> producerFactory() {
         Map<String, Object> config = new HashMap<>();
 
         config.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "127.0.0.1:9092");
@@ -29,7 +29,7 @@ public class KafkaConfiguration {
     }
 
     @Bean
-    public KafkaTemplate<String, Taxi> kafkaTemplate() {
+    public KafkaTemplate<String, Trip> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
 
